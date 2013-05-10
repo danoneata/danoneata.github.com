@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head profile="http://gmpg.org/xfn/11">
+    <link href="/feeds/dev.xml" rel="alternate" title="Dan's blog" type="application/atom+xml">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/default.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta charset="UTF-8">
+    <title>Automatic differentiation for neighbourhood component analysis</title>
+    
+    <meta name="description" content="A tutorial on how to apply automatic differentiation to efficiently compute the gradients of a function. We consider the case of a metric learning algorithm&amp;mdash;neighbourhood component analysis.
+">
+    
+    <meta name=author lang=ro content="Dan Onea&#x21B;&#x103;">
+    <meta content='initial-scale=1.0' name='viewport'>
+    <link rel="icon" href="/favicon.ico">
+
+    
+  </head>
+  
+  <body>
+    <article class=hentry>
+
+<header>
+
+<h1 class=entry-title>Automatic differentiation for neighbourhood component analysis</h1>
+
+
+<p class="byline author vcard instapaper_ignore entry-unrelated">
+  
+  By <a href="/" rel=author class=fn lang=hr>Dan Oneaţă</a>
+  
+  
+  on <time class=updated datetime="2013-05-04T00:00:00+03:00" pubdate>04 May 2013</time>
+  
+</p>
+</header>
+
+<div id="post" class="entry-content">
+  <p>The goal of NCA is to find a linear transformation <span class="math">\(\mathbf{A}\)</span> that maximizes the objective function <span class="math">\(f\)</span>. To achieve this, we may use gradient-based optimization methods. Consequently, the training time is directly influenced by the cost of evaluating the derivative. As pointed out in my master’s thesis using straightforward linear algebra to compute the derivative yields a cost of <span class="math">\(dDN^2\)</span> flops. We will see that with the help of backpropagation we can improve upon this and achieve a cost of the gradient that is equal to the cost of evaluating the original function: <span class="math">\(\mathcal{O}(dDN + dN^2)\)</span>.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Before diving into NCA-related derivations, we offer a short overview on backpropagation; the following next two sections will be an exemplification on how to apply backpropagation to the NCA objective function.</p>
+<p>The backpropagation technique is the <em>de facto</em> tool for training neural networks, since it provides an efficient mechanism for computing the derivatives with respect to the input weights. We can leverage the power of backpropagation for general derivative computation, by simply representing the given function in the form of a “neural network,” also called <em>expression graph</em>. This peculiar neural network is built as follows: it has as inputs the function parameters, the output is the function value and the intermediate nodes correspond to atomic operations<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> that can be readily evaluated. An example of a possible expression graph for the NCA function is given in figure 1.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>These atomic operations can have different granularity. In our example a node from the expression graph corresponds roughly to a Matlab function or to what can be computed in a Matlab line.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+
+</div>
+
+</article>
+
+<aside id="related">
+  
+  <h2>Also on this site</h2>
+  
+  <ol class="posts">
+    
+  </ol>
+  
+  
+  <nav><a class="home" href="/">← All posts</a></nav>
+</aside>
+
+
+    <script type="text/javascript">
+    Included file 'tracking_code.js' not found in _includes directory
+    </script>
+  </body>
+</html>
