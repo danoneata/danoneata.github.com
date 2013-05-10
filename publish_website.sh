@@ -1,3 +1,5 @@
 #!/usr/bin/bash
-git update-ref refs/heads/master $(echo "$1" | git commit-tree source^{tree}:_site -p $(cat .git/refs/heads/master))
-git push origin master
+git branch -D master
+git checkout -b master
+git filter-branch --subdirectory-filter _site/ -f
+git checkout source && git push --all origin

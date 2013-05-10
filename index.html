@@ -1,12 +1,29 @@
----
-layout: default
-title: Dan's blog
-description: >
-    Research notes and links of Dan Oneaţă on machine learning and computer vision.
----
+<!DOCTYPE html>
+<html>
+  <head profile="http://gmpg.org/xfn/11">
+    <link href="/feeds/dev.xml" rel="alternate" title="Dan's blog" type="application/atom+xml">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/default.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-<header id=blog>
-    <h1>{{ page.title }}</h1>
+    <meta charset="UTF-8">
+    <title>Dan&#39;s blog</title>
+    
+    <meta name="description" content="Research notes and links of Dan Oneaţă on machine learning and computer vision.
+">
+    
+    <meta name=author lang=ro content="Dan Onea&#x21B;&#x103;">
+    <meta content='initial-scale=1.0' name='viewport'>
+    <link rel="icon" href="/favicon.ico">
+
+    
+  </head>
+  
+  <body>
+    <header id=blog>
+    <h1>Dan's blog</h1>
 
     <p class=byline>
       Notes and links by
@@ -23,25 +40,29 @@ description: >
 </header>
 
 <section class="posts hfeed">
-{% for post in site.posts %}
-  {% unless post.tags contains "dated" %}
-  <article class="hentry{% if post.link %} link{% elsif post.tags contains "featured" %} featured{% endif %}">
+
+  
+  <article class="hentry">
     <header>
-      {% if post.link %}
-      <h2><a class=entry-title href="{{ post.link | escape }}">{{ post.title }}</a>&nbsp;&rarr;</h2>
-      {% else %}
-      <h2 class=entry-title><a rel=bookmark href="{{ post.url }}">{{ post.title }}</a></h2>
-      {% endif %}
-      <time datetime="{{ post.date | date_to_xmlschema }}" class=published pubdate>{{ post.date | date_to_string }}</time>
-      {% if post.link %}· <a href="{{ post.url }}" rel=bookmark title=permalink>&infin;</a>{% endif %}
+      
+      <h2 class=entry-title><a rel=bookmark href="/machine-learning,/back-propagation/2013/05/04/automatic_differentiation_nca.html">Automatic differentiation for neighbourhood component analysis</a></h2>
+      
+      <time datetime="2013-05-04T00:00:00+03:00" class=published pubdate>04 May 2013</time>
+      
     </header>
 
-    {% if post.link %}
-      {{ post.content }}
-    {% else %}
-      {% if page.description %}<p class=entry-summary>{{ post.description }}</p>{% endif %}
-    {% endif %}
+    
+      <p class=entry-summary>A tutorial on how to apply automatic differentiation to efficiently compute the gradients of a function. We consider the case of a metric learning algorithm&mdash;neighbourhood component analysis.
+</p>
+    
   </article>
-  {% endunless %}
-{% endfor %}
+  
+
 </section>
+
+
+    <script type="text/javascript">
+    Included file 'tracking_code.js' not found in _includes directory
+    </script>
+  </body>
+</html>
