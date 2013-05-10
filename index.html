@@ -1,0 +1,47 @@
+---
+layout: default
+title: Dan's blog
+description: >
+    Research notes and links of Dan Oneaţă on machine learning and computer vision.
+---
+
+<header id=blog>
+    <h1>{{ page.title }}</h1>
+
+    <p class=byline>
+      Notes and links by
+      <a href="http://lear.inrialpes.fr/people/oneata"><strong>Dan Oneaţă</strong></a>
+    </p>
+
+    <!--
+        <div id="links_me">
+          Put a publications list
+          <a href="/projects/">projects</a> ·
+          <a href="http://github.com/mislav" rel="me">github.com/danoneata</a>
+        </div>
+    -->
+</header>
+
+<section class="posts hfeed">
+{% for post in site.posts %}
+  {% unless post.tags contains "dated" %}
+  <article class="hentry{% if post.link %} link{% elsif post.tags contains "featured" %} featured{% endif %}">
+    <header>
+      {% if post.link %}
+      <h2><a class=entry-title href="{{ post.link | escape }}">{{ post.title }}</a>&nbsp;&rarr;</h2>
+      {% else %}
+      <h2 class=entry-title><a rel=bookmark href="{{ post.url }}">{{ post.title }}</a></h2>
+      {% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}" class=published pubdate>{{ post.date | date_to_string }}</time>
+      {% if post.link %}· <a href="{{ post.url }}" rel=bookmark title=permalink>&infin;</a>{% endif %}
+    </header>
+
+    {% if post.link %}
+      {{ post.content }}
+    {% else %}
+      {% if page.description %}<p class=entry-summary>{{ post.description }}</p>{% endif %}
+    {% endif %}
+  </article>
+  {% endunless %}
+{% endfor %}
+</section>

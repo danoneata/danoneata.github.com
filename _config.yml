@@ -1,0 +1,12 @@
+safe: false
+lsi: false
+pygments: true
+server: false
+auto: false
+watch: false
+
+markdown: pandoc
+pandoc:
+    extensions: [smart, mathjax]
+
+exclude: [".rvmrc", ".rbenv-version", ".gitignore", "config.ru", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "Procfile", "vendor"]
