@@ -1,9 +1,11 @@
-safe: false
-lsi: false
+auto:     false
+lsi:      false
 pygments: true
-server: false
-auto: false
-watch: false
+safe:     false
+server:   false
+watch:    false
+
+permalink: /:year/:month/:title/
 
 markdown: pandoc
 pandoc:
