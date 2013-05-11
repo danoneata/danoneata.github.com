@@ -9,6 +9,10 @@ permalink: /:year/:month/:title/
 
 markdown: pandoc
 pandoc:
-    extensions: [smart, mathjax]
+    extensions:
+        - smart
+        - standalone
+        - mathjax
+        - highlight-style: pygments
 
 exclude: [".rvmrc", ".rbenv-version", ".gitignore", "config.ru", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "Procfile", "vendor"]
